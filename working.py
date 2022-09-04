@@ -86,7 +86,7 @@ def convert(s):
 
 
     else:
-        sys.exit("This is a test exit")
+        sys.exit("This was an unexpected exit.")
 
 
 
