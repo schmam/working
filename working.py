@@ -33,7 +33,10 @@ def convert(s):
             minute_1 = int(match.group(2))
 
         elif match.group(3) == "PM":                # add 12 hours if PM
-            hour_1 = (12 + int(match.group(1)))
+            if match.group(1) == "12":              # if 12:00 AM, return "12:00"
+                hour_1 = 12
+            else:
+                hour_1 = (12 + int(match.group(1)))
             minute_1 = int(match.group(2))
         else:
             return ValueError
@@ -46,7 +49,10 @@ def convert(s):
             minute_2 = int(match.group(5))
 
         elif match.group(6) == "PM":                # add 12 hours if PM
-            hour_2 = (12 + int(match.group(4)))
+            if match.group(4) == "12":              # if 12:00 AM, return "12:00"
+                hour_2 = 12
+            else:
+                hour_2 = (12 + int(match.group(4)))
             minute_2 = int(match.group(5))
         else:
             return ValueError
@@ -68,7 +74,10 @@ def convert(s):
             else:
                 hour_1 = int(match.group(1))
         elif match.group(2) == "PM":                # add 12 hours if PM
-            hour_1 = (12 + int(match.group(1)))
+            if match.group(1) == "12":              # if 12:00 AM, return "12:00"
+                hour_1 = 12
+            else:
+                hour_1 = (12 + int(match.group(1)))
         else:
             return ValueError
 
@@ -78,7 +87,10 @@ def convert(s):
             else:
                 hour_2 = int(match.group(3))
         elif match.group(4) == "PM":                # add 12 hours if PM
-            hour_2 = (12 + int(match.group(3)))
+            if match.group(3) == "12":              # if 12:00 AM, return "12:00"
+                hour_2 = 12
+            else:
+                hour_2 = (12 + int(match.group(3)))
         else:
             return ValueError
 
@@ -86,7 +98,7 @@ def convert(s):
 
 
     else:
-        sys.exit("This was an unexpected exit.")
+        return ValueError
 
 
 
